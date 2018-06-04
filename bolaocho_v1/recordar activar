@@ -1,0 +1,28 @@
+https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04
+
+Now, we need to activate mod_rewrite.
+
+sudo a2enmod rewrite
+This will activate the module or alert you that the module is already in effect. To put these changes into effect, restart Apache.
+
+sudo service apache2 restart
+
+
+---------------------------------------------------------------------
+
+
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+Inside that file, you will find the <VirtualHost *:80> block on line 1. Inside of that block, add the following block:
+
+/etc/apache2/sites-available/default
+<Directory /var/www/html>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+</Directory>
+
+
+---------------------------------------------------------------------sudo /etc/init.d/apache2 start
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/apache2 start

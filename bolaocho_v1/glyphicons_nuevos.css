@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'glyphicon';
+  src:  url('../fonts/glyphicon.eot');
+  src:  url('../fonts/glyphicon.eot') format('embedded-opentype'),
+    url('../fonts/glyphicon.ttf') format('truetype'),
+    url('../fonts/glyphicon.woff') format('woff'),
+    url('../fonts/glyphicon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="glyphicon-"], [class*=" glyphicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'glyphicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-pwd1:before {
+  content: "\e900";
+}
+.glyphicon-she1:before {
+  content: "\e901";
+}
+.glyphicon-card:before {
+  content: "\e902";
+}
+.glyphicon-pwd2:before {
+  content: "\e903";
+}
+.glyphicon-she2:before {
+  content: "\e904";
+}
+.glyphicon-info:before {
+  content: "\ea0c";
+}

@@ -27,7 +27,9 @@ class Contenido_model extends CI_Model {
 				'text' => $datos['text'],
 				'html' => $datos['html'],
 				'extra' => $datos['extra'],
-				'extras' => $datos['extras']			
+				'extras' => $datos['extras'],
+				'extras2' => $datos['extras2'],
+				'extras3' => $datos['extras3']
 			);
 			error_log('       update        '.print_r($data,true), 3, '/tmp/algo');
 			$condiciones = array('id_pagina' => $datos['id_pagina'], 'id_seccion' => $datos['seccion']);
@@ -43,7 +45,9 @@ class Contenido_model extends CI_Model {
 				'text' => $datos['text'],
 				'html' => $datos['html'],
 				'extra' => $datos['extra'],
-				'extras' => $datos['extras']
+				'extras' => $datos['extras'],
+				'extras2' => $datos['extras2'],
+				'extras3' => $datos['extras3']
 			);
 			error_log('       insert        '.print_r($data,true), 3, '/tmp/algo');
 			$this->db->insert('Contenido', $data);
@@ -83,7 +87,6 @@ class Contenido_model extends CI_Model {
 	}
 	public function delete_img_gallery($id_pagina, $nombre_img){
 		$condiciones = array('id_pagina' => $id_pagina, 'background_img' => $nombre_img);
-		var_dump($id_pagina .'  '. $nombre_img);
 		$this->db->where($condiciones);
 		$this->db->delete('Contenido');
 	}
@@ -128,5 +131,95 @@ class Contenido_model extends CI_Model {
 		}
 	}
 
+	public function set_contenido_jugadores($datos){
+		$data = array(
+				'nombre' => $datos['nombre'],
+				'lugar' => $datos['lugar'],
+				'edad' => $datos['edad'],
+				'Jornadas' => $datos['Jornadas'],
+				'JG' => $datos['JG'],
+				'JP' => $datos['JP'],
+				'jugados' => $datos['jugados'],
+				'JG2' => $datos['JG2'],
+				'JP2' => $datos['JP2'],
+				'DF' => $datos['DF'],
+				'puntos' => $datos['puntos'],
+				'estatus' => $datos['estatus'],
+				'orden' => $datos['orden'],
+			);
+		if($datos['id'] != ''){
+			$condiciones = array('id' => $datos['id']);
+			$this->db->where($condiciones);
+			$this->db->update('tabla_jugadores', $data);
+		}else{
+			$this->db->insert('tabla_jugadores', $data);
+		}
+	}
 
+	public function get_contenido_jugadores(){
+		$condiciones = array('estatus' => '1');
+		$this->db->where($condiciones);
+		$query = $this->db->get('tabla_jugadores');
+		if($query->num_rows() > 0) return $query->result();
+		else return false;
+	}
+
+	public function eliminar_jugador($id){
+		$condiciones = array('id' => $id);
+		$this->db->where($condiciones);
+		$this->db->delete('tabla_jugadores');
+	}
+
+	public function set_contenido_correos($datos){
+		$data = array(
+				'nombre' => $datos['nombre'],
+				'correo' => $datos['correo'],
+				'telefono' => $datos['telefono'],
+				'edad' => $datos['edad'],
+				'asunto' => $datos['asunto'],
+				'genero' => $datos['genero'],
+				'mensaje' => $datos['mensaje'],
+				'adjunto' => $datos['adjunto']
+			);
+			$this->db->insert('correos', $data);
+	}
+
+	public function get_contenido_correos(){
+		$query = $this->db->get('correos');
+		if($query->num_rows() > 0) return $query->result();
+		else return false;
+	}
+	public function set_contenido_vacantes($datos){
+		$data = array(
+				'id' => $datos['id'],
+				'vacante' => $datos['vacante'],
+				'descripcion' => $datos['descripcion'],
+				'horarios' => $datos['horarios'],
+				'estatus' => $datos['estatus'],
+			);
+		if($datos['id'] != ''){
+			$condiciones = array('id' => $datos['id']);
+			$this->db->where($condiciones);
+			$this->db->update('vacantes', $data);
+		}else{
+			$this->db->insert('vacantes', $data);
+		}
+	}
+	public function get_contenido_vacantes(){
+		$query = $this->db->get('vacantes');
+		if($query->num_rows() > 0) return $query->result();
+		else return false;
+	}
+	public function get_contenido_vacantes_activas(){
+		$condiciones = array('estatus' => '1');
+		$this->db->where($condiciones);
+		$query = $this->db->get('vacantes');
+		if($query->num_rows() > 0) return $query->result();
+		else return false;
+	}
+	public function eliminar_vacantes($id){
+		$condiciones = array('id' => $id);
+		$this->db->where($condiciones);
+		$this->db->delete('vacantes');
+	}	
 }

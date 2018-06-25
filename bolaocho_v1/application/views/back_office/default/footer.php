@@ -1,15 +1,5 @@
 			</div>
-			<?php if(isset($login)){ ?>
-				<footer class="col-sm-12 footer">
-			<?php }else{ ?>
-				<footer class="col-sm-offset-3 col-md-offset-2 col-xs-12 col-sm-9 col-md-10 footer">
-			<?php } ?>
-				<div class="container">
-					<a href="http://emcode.com.mx/" target="_blank">
-							<img class="center-block " src="<?= base_url("img/logo25.png")?>" width="150" alt = "Anamar">
-						</a>
-				</div>
-			</footer>
+			
 		</div>
     </div>
 

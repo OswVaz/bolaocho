@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Anamar BL-Admin</title>
+    <title>Bolaocho.com.mx</title>
 
     <!-- Meta -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +12,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
     <meta name="msapplication-navbutton-color" content="#4285f4" />
 	<meta name="format-detection" content="telephone=no">
-	<meta name="author" content="Emcode">
-	<meta name="description" content="anamarbeautylounge.com Salon de belleza de primera, peinados y maquillaje San Pedro Garza Garcia Nuevo León">
+	<meta name="author" content="Aron Garcia">
+	<meta name="description" content="">
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>css/back_office/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>css/back_office/dashboard.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>css/back_office/back_office.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>css/back_office/sticky-footer.css">
@@ -31,7 +31,6 @@
     <script type="text/javascript" src="<?= base_url()?>js/botonarriba/arribaboton.js"></script>
     <script type="text/javascript" src="<?=base_url()?>js/back_office/back_office.js"></script>
     <script type="text/javascript" src="<?= base_url()?>js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?= base_url()?>js/eskju.jquery.scrollflow.min.js"></script>
 	<script type="text/javascript" src="<?= base_url()?>js/menu.js"></script>
     <script type="text/javascript" src="<?= base_url()?>js/jquery.js"></script>
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->

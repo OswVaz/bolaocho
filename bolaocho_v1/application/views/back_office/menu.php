@@ -107,15 +107,24 @@
                         <div class="form-group">
                             <input class="form-control" name = "param4" value="<?= (isset($data_section4))? $data_section4['param4'] : '' ;?>">
                         </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param5" value="<?= (isset($data_section4))? $data_section4['param5'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param6" value="<?= (isset($data_section4))? $data_section4['param6'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param7" value="<?= (isset($data_section4))? $data_section4['param7'] : '' ;?>">
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label>Texto adicional</label>
-                            <input type="text" class="form-control input-sm" name = "param5" value="<?= (isset($data_section4))? $data_section4['param5'] : '' ;?>">
+                            <input type="text" class="form-control input-sm" name = "param8" value="<?= (isset($data_section4))? $data_section4['param8'] : '' ;?>">
                         </div>
                         <div class="form-group">
                             <label>Costo</label>
-                            <input type="text" name = "param6" value="<?= (isset($data_section4))? $data_section4['param5'] : '' ;?>" class="form-control input-lg">
+                            <input type="text" name = "param9" value="<?= (isset($data_section4))? $data_section4['param9'] : '' ;?>" class="form-control input-lg">
                         </div>
                         <hr>
                         <div class="form-group text-center">
@@ -149,15 +158,24 @@
                         <div class="form-group">
                             <input class="form-control" name = "param4" value="<?= (isset($data_section5))? $data_section5['param4'] : '' ;?>">
                         </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param5" value="<?= (isset($data_section5))? $data_section5['param5'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param6" value="<?= (isset($data_section5))? $data_section5['param6'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param7" value="<?= (isset($data_section5))? $data_section5['param7'] : '' ;?>">
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label>Texto adicional</label>
-                            <input type="text" class="form-control input-sm" name = "param5" value="<?= (isset($data_section5))? $data_section5['param5'] : '' ;?>">
+                            <input type="text" class="form-control input-sm" name = "param8" value="<?= (isset($data_section5))? $data_section5['param8'] : '' ;?>">
                         </div>
                         <div class="form-group">
                             <label>Costo</label>
-                            <input type="text" name = "param6" value="<?= (isset($data_section5))? $data_section5['param6'] : '' ;?>" class="form-control input-lg">
+                            <input type="text" name = "param9" value="<?= (isset($data_section5))? $data_section5['param9'] : '' ;?>" class="form-control input-lg">
                         </div>
                         <hr>
                         <div class="form-group text-center">
@@ -192,15 +210,25 @@
                         <div class="form-group">
                             <input class="form-control" name = "param4" value="<?= (isset($data_section6))? $data_section6['param4'] : '' ;?>">
                         </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param5" value="<?= (isset($data_section6))? $data_section6['param5'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param6" value="<?= (isset($data_section6))? $data_section6['param6'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param7" value="<?= (isset($data_section6))? $data_section6['param7'] : '' ;?>">
+                        </div>
+
                     </div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label>Texto adicional</label>
-                            <input type="text" class="form-control input-sm" name = "param5" value="<?= (isset($data_section6))? $data_section6['param5'] : '' ;?>">
+                            <input type="text" class="form-control input-sm" name = "param8" value="<?= (isset($data_section6))? $data_section6['param8'] : '' ;?>">
                         </div>
                         <div class="form-group">
                             <label>Costo</label>
-                            <input type="text" name = "param6" value="<?= (isset($data_section6))? $data_section6['param6'] : '' ;?>" class="form-control input-lg">
+                            <input type="text" name = "param9" value="<?= (isset($data_section6))? $data_section6['param9'] : '' ;?>" class="form-control input-lg">
                         </div>
                         <hr>
                         <div class="form-group text-center">
@@ -240,15 +268,21 @@
                         <div class="form-group">
                             <input class="form-control" name = "param5" value="<?= (isset($data_section7))? $data_section7['param5'] : '' ;?>">
                         </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param6" value="<?= (isset($data_section7))? $data_section7['param6'] : '' ;?>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name = "param7" value="<?= (isset($data_section7))? $data_section7['param7'] : '' ;?>">
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label>Texto adicional</label>
-                            <input type="text" class="form-control input-sm" name = "param6" value="<?= (isset($data_section7))? $data_section7['param6'] : '' ;?>">
+                            <input type="text" class="form-control input-sm" name = "param8" value="<?= (isset($data_section7))? $data_section7['param8'] : '' ;?>">
                         </div>
                         <div class="form-group">
                             <label>Costo</label>
-                            <input type="text" name = "param7" value="<?= (isset($data_section7))? $data_section7['param7'] : '' ;?>" class="form-control input-lg">
+                            <input type="text" name = "param9" value="<?= (isset($data_section7))? $data_section7['param9'] : '' ;?>" class="form-control input-lg">
                         </div>
                         <hr>
                         <div class="form-group text-center">
@@ -262,7 +296,7 @@
 </div>
 
 <!-- menus -->
-<div class="bs-docs-section">
+<div class="bs-docs-section hidden">
     <h3 class="sub-header">Sección de menús</h3>
     <div class="row">
         <div class="col-sm-6 col-xs-12">
@@ -308,8 +342,8 @@
 </div>
 
 <!-- promocion #1 -->
-<h3 class="sub-header">Configuración de promociones</h3>
-<div class="bs-docs-section">
+<h3 class="sub-header hidden">Configuración de promociones</h3>
+<div class="bs-docs-section hidden">
     <div class="well">
         <form role="form" id="promo_expecial1">
             <input type="hidden" class="page_name" name="page_name" value="Admin_menu">
@@ -350,8 +384,8 @@
 </div>
 
 <!-- Galeria de bebidas -->
-<h3 class="sub-header">Configuración de promociones</h3>
-<div class="bs-docs-section">
+<h3 class="sub-header hidden">Configuración de promociones</h3>
+<div class="bs-docs-section hidden">
     <form role="form" id="titulo_seccion">
         <input type="hidden" class="page_name" name="page_name" value="Admin_menu">
         <input type="hidden" name="seccion" value="11">
@@ -360,12 +394,12 @@
             <textarea type="text" class="form-control form-group input-lg" name = "param1" ><?= (isset($data_section11))? $data_section11['param1'] : '' ;?></textarea>
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
-        <div class="alert alert-info">Aquí va el componente de carga de imagenes</div>
+        
     </form>
 </div>
-
+<div class="alert alert-info">Aquí va el componente de carga de imagenes</div>
 <!-- promocion #2s -->
-<div class="bs-docs-section">
+<div class="bs-docs-section hidden">
     <div class="well">
         <form role="form" id="promo_expecial2">
             <input type="hidden" class="page_name" name="page_name" value="Admin_menu">
@@ -400,6 +434,29 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Guardar</button>
             </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col-sm-12"><h1 class="page-header"></h1></div>
+    <div class = "col-xs-12 col-sm-5">
+        <h3 class="page-header2">Sección "Galeria"</h3>
+        <form action="Admin_menu/upload_multiple_images" id = "dropzone1" class="dropzone">
+            <input type="hidden" name= "seccion" value="99">
+            <div class = "hidden_images">
+                <?= $gallery_dropzone?>
+            </div>
+        </form>
+    </div>
+    <div class = "col-xs-12 col-sm-7">
+        <h3>Imágenes actuales</h3>
+        <form id="delete_pictures" method = "post">
+            <div class = "row prev_gallery">
+                <?=$gallery?>
+            </div>
+            <button type ="submit" class="btn btn-default">Eliminar</button>
+            <input type= "checkbox" onchange="select_all(this.checked);"><span> Seleccionar todos</span>
         </form>
     </div>
 </div>

@@ -16,22 +16,21 @@
                                       <input type="hidden" name="seccion" value="1">
                                       <div class="form-group">
                                           <label>Selecciona la imagen a cambiar</label>
-                                          <input type="file">
+                                          <input type="file" name = "img_fondo" id = "img_fondo">
                                       </div>
                                       <div class="form-group">
                                           <label>Titulo de la pagina</label>
-                                          <input class="form-control input-lg" type="text" value="Eventos">
+                                          <input class="form-control input-lg" name = "param2" type="text" value="<?= (isset($data_section1))? $data_section1['param2'] : '' ;?>">
                                       </div>
                                       <div class="form-group">
                                           <label>Descripción de la pagina</label>
-                                          <input class="form-control" type="text" value="Organiza tus eventos con nosotros">
+                                          <input class="form-control input-lg" name = "param3" type="text" value="<?= (isset($data_section1))? $data_section1['param3'] : '' ;?>">
                                       </div>
-                                      <button type="reset" class="btn btn-success">Actualizar</button>
-                                      <button type="reset" class="btn btn-danger">Restablecer</button>
+                                      <button type="submit" class="btn btn-success">Actualizar</button>
                                   </form>
                               </div>
                               <div class="col-lg-6">
-                                <img src="../img/banner3.jpg" alt="" class="img-responsive">
+                                <img id = "img_1" src="<?= (isset($data_section1))? $data_section1['param1'] : '' ;?>" alt="" class="img-responsive center-block">
                               </div>
                           </div>
                           <!-- /.row (nested) -->
@@ -39,15 +38,17 @@
                   </div> 
               </div>
             </div>
-            
             <!-- modificar redes sociales -->
             <h3 class="sub-header">Redes sociales</h3>
             <div class="well">
+              <form id="socialnet" method="post">
+                <input type="hidden" class="page_name" name="page_name" value="Admin_eventos">
+                <input type="hidden" name="seccion" value="2" >
               <p>Activar o desactiva el <code>iframe</code> de las siguiente redes sociales:</p>
-              <p class="lead">Facebook <input class="toggle botonEstado" name="my-checkbox" type="checkbox" data-toggle="toggle" checked="">
+              <p class="lead">Instagram <input class="toggle botonEstado" name="param1" type="checkbox" data-toggle="toggle">
               </p>
-              <p class="lead">Instagram <input class="toggle botonEstado" name="my-checkbox" type="checkbox" data-toggle="toggle" checked="">
-              </p>
+              <button type="submit" class="btn btn-success">Actualizar</button>
+              </form>
             </div>
 
             <!-- imagenes -->
@@ -56,38 +57,43 @@
               <div class="row">
                 <div class="col-sm-6 col-xs-12">
                   <div class="well">
-                    <div class="form-group">
-                        <label>Imagen extra 1</label>
-                        <input type="file" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <img src="../img/eventos/evento1.JPG" alt="" class="img-responsive">
-                    </div>
-                    <div class="form-group">
-                        <button type="reset" class="btn btn-success">Guardar</button>
-                        <button type="reset" class="btn btn-danger">Cancelar</button>
-                    </div>
+                    <form id="img" method="post" enctype="multipart/form-data">
+                        <input type="hidden" class="page_name" name="page_name" value="Admin_eventos">
+                        <input type="hidden" name="seccion" value="3">
+                        <div class="form-group">
+                            <label>Imagen extra 1</label>
+                            <input type="file" class="form-control" name = "img_fondo" id = "img_fondo1">
+                        </div>
+                        <div class="form-group">
+                            <img src="<?= (isset($data_section3))? $data_section3['param1'] : '' ;?>" alt="" id = "img1" class="img-responsive">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </form>
                   </div>
                 </div>
+
                 <div class="col-sm-6 col-xs-12">
                   <div class="well">
-                    <div class="form-group">
-                        <label>Imagen extra 2</label>
-                        <input type="file" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <img src="../img/eventos/evento2.JPG" alt="" class="img-responsive">
-                    </div>
-                    <div class="form-group">
-                        <button type="reset" class="btn btn-success">Guardar</button>
-                        <button type="reset" class="btn btn-danger">Cancelar</button>
-                    </div>
+                      <form id="imagen" method="post" enctype="multipart/form-data">
+                        <input type="hidden" class="page_name" name="page_name" value="Admin_eventos">
+                        <input type="hidden" name="seccion" value="4">
+                        <div class="form-group">
+                            <label>Imagen extra 2</label>
+                            <input type="file" class="form-control" name = "img_fondo" id = "img_fondo1">
+                        </div>
+
+                        <div class="form-group">
+                            <img src="<?= (isset($data_section4))? $data_section4['param1'] : '' ;?>" alt="" id = "img2" class="img-responsive">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <!-- alerta de cambios -->
-            <div class="alert alert-info">La modificación del contenido de los paquetes aplicara tambien en la pagina de <a href="../eventos.php" target="_blank"><strong>Eventos</strong></a></div> 
-            
+
         

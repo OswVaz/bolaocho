@@ -10,25 +10,26 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form">
+                                <form role="form" id="baner">
+                                    <input type="hidden" class="page_name" name="page_name" value="Admin_contacto">
+                                    <input type="hidden" name="seccion" value="1">
                                     <div class="form-group">
                                         <label>Selecciona la imagen a cambiar</label>
-                                        <input type="file">
+                                        <input type="file" name = "img_fondo" id = "img_fondo">
                                     </div>
                                     <div class="form-group">
                                         <label>Titulo de la pagina</label>
-                                        <input class="form-control input-lg" type="text" value="Contactanos">
+                                        <input class="form-control input-lg" name = "param2" type="text" value="<?= (isset($data_section1))? $data_section1['param2'] : '' ;?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Descripción de la pagina</label>
-                                        <input class="form-control" type="text" value="Dejanos tus comentarios, sugerencias. Estamos a tus ordenes">
+                                        <input class="form-control input-lg" name = "param3" type="text" value="<?= (isset($data_section1))? $data_section1['param3'] : '' ;?>">
                                     </div>
-                                    <button type="reset" class="btn btn-success">Actualizar</button>
-                                    <button type="reset" class="btn btn-danger">Restablecer</button>
+                                    <button type="submit" class="btn btn-success">Actualizar</button>
                                 </form>
                             </div>
                             <div class="col-lg-6">
-                              <img src="../img/banner5.jpg" alt="" class="img-responsive">
+                              <img id = "img_1" src="<?= (isset($data_section1))? $data_section1['param1'] : '' ;?>" alt="" class="img-responsive center-block">
                             </div>
                         </div>
                         <!-- /.row (nested) -->
@@ -40,20 +41,20 @@
             <div class="bs-docs-section">
               <h3 class="sub-header">Sección de Reclutamiento</h3>
                 <div class="well">
-                 <form>
+                 <form role="form" id="vacantes">
+                    <input type="hidden" class="page_name" name="page_name" value="Admin_contacto">
+                    <input type="hidden" name="seccion" value="2">
                     <div class="form-group">
                         <label>Slogan amarillo</label>
-                        <input type="text" class="form-control form-group" value="Trabaja donde te gusta jugar">
+                        <input type="text" class="form-control form-group" name = 'param1' value="<?= (isset($data_section2))? $data_section2['param1'] : '' ;?>">
                     </div>
                     <div class="form-group">
                         <label>Titulo de la sección</label>
-                        <input type="text" class="form-control form-group input-lg" value="UNETE A NUESTRO EQUIPO">
+                        <input type="text" class="form-control form-group input-lg" name = 'param2' value="<?= (isset($data_section2))? $data_section2['param2'] : '' ;?>">
                     </div>
-                    <p>Mostrar la tabla de vacantes <input type="checkbox" checked data-toggle="toggle" data-size="mini"></p>
+                    
                     <div class="form-group">
-                          <button type="reset" class="btn btn-success">Guardar</button>
-                          <button type="reset" class="btn btn-warning">Limpiar</button>
-                          <a href="#"> <strong>Restaurar</strong></a>
+                          <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                  </form> 
                 </div>
@@ -68,46 +69,15 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>#</th>
-                          <th>Vacante</th> 
+                          <th>Vacante</th>
                           <th>Descripción</th>
                           <th>Horarios</th>
+                          <th>Estatus</th> 
                           <th></th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td></td>
-                          <td>
-                            <input type="text" value="" class="form-control">
-                          </td>
-                          <td>
-                            <textarea class="form-control"></textarea>
-                          </td>
-                          <td>
-                            <input type="text" value="" class="form-control">
-                          </td>
-                          <td class="text-center">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Limpieza
-                          </td>
-                          <td>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                          </td>
-                          <td>
-                            8:00 am - 5:00pm
-                          </td>
-                          <td class="text-center">
-                            <a href="#" class="btn btn-danger"><i class="fa fa-minus"></i></a>
-                          </td>
-                        </tr>
+                      <tbody class = "borrar">
+                        <?= (isset($tabla))? $tabla : '';?>
                       </tbody>
                     </table>
                   </div>

@@ -130,15 +130,12 @@
                     <div class="clearfix visible-md visible-lg"></div>
                     <div class="col-sm-4 col-xs-6">
                         <label>Descripción</label>
-                        <input type="text" class="form-control form-group" value="<?= (isset($data_section5))? $data_section5['param2'] : '' ;?>" name="param2">
-                        <label>Descripción</label>
-                        <input type="text" class="form-control form-group" value="<?= (isset($data_section5))? $data_section5['param3'] : '' ;?>" name="param3">
+                        <textarea type="text" rows = "3" class="form-control form-group" name="param2"><?= (isset($data_section5))? $data_section5['param2'] : '' ;?></textarea>
                     </div>
                     <div class="col-sm-4 col-xs-6">
                         <label>Texto amarillo</label>
-                        <input type="text" class="form-control form-group" value="<?= (isset($data_section5))? $data_section5['param4'] : '' ;?>" name="param4">
-                        <label>Texto amarillo</label>
-                        <input type="text" class="form-control form-group" value="<?= (isset($data_section5))? $data_section5['param5'] : '' ;?>" name="param5">
+                        <input type="text" class="form-control form-group" value="<?= (isset($data_section5))? $data_section5['param3'] : '' ;?>" name="param3">
+                        
                     </div>
                     <div class="clearfix visible-sm"></div>
                     <div class="col-md-12">

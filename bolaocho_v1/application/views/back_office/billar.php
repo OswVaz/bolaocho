@@ -11,26 +11,25 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <form role="form" id="baner">
-                                      <input type="hidden" class="page_name" name="page_name" value="Admin_billar">
-                                      <input type="hidden" name="seccion" value="1">
+                                      <input type="hidden" class="page_name page_name" value="Admin_billar">
+                                      <input type="hidden" class = "seccion" value="1">
                                     <div class="form-group">
                                         <label>Selecciona la imagen a cambiar</label>
-                                        <input type="file">
+                                        <input type="file" name = "img_fondo" id = "img_fondo">
                                     </div>
                                     <div class="form-group">
                                         <label>Titulo de la pagina</label>
-                                        <input class="form-control input-lg" type="text" value="Billar">
+                                        <input class="form-control input-lg" type="text" name = "param2" value="<?= (isset($data_section1))? $data_section1['param2'] : '' ;?>"> 
                                     </div>
                                     <div class="form-group">
                                         <label>Descripción de la pagina</label>
-                                        <input class="form-control" type="text" value="Organiza tus eventos con nosotros">
+                                        <input class="form-control" type="text" name = "param3" value="<?= (isset($data_section1))? $data_section1['param3'] : '' ;?>">
                                     </div>
-                                    <button type="reset" class="btn btn-success">Actualizar</button>
-                                    <button type="reset" class="btn btn-danger">Restablecer</button>
+                                    <button type="submit" class="btn btn-success">Actualizar</button>
                                 </form>
                             </div>
                             <div class="col-lg-6">
-                              <img src="../img/banner4.jpg" alt="" class="img-responsive">
+                              <img id = "img_s1" src="<?= (isset($data_section1))? $data_section1['param1'] : '' ;?>" alt="" class="img-responsive center-block">
                             </div>
                         </div>
                         <!-- /.row (nested) -->
@@ -42,37 +41,22 @@
             <h3 class="sub-header">Horarios</h3>
             <div class="bs-docs-section">
               <div class="form-group">
-                <label>Cambiar imagen</label>
-                <input type="file" class="form-control">
+                <form id="img" method="post" enctype="multipart/form-data">
+                        <input type="hidden" class="page_name page_name" value="Admin_billar">
+                        <input type="hidden" class = "seccion" value="2">
+                        <div class="form-group">
+                            <label>Cambiar Imagen</label>
+                            <input type="file" class="form-control" name = "img_fondo" id = "img_fondo1">
+                        </div>
+                        <div class="form-group">
+                            <img src="<?= (isset($data_section2))? $data_section2['param1'] : '' ;?>" alt="" id = "img1" class="img-responsive">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </form>
               </div>
-              <div class="row">
-                  <form action="">
-                      <div class="col-sm-4 col-xs-6">
-                          <label>Días</label>
-                          <div class="form-group">
-                              <input type="text" class="form-control form-group" value="Lunes a Viernes">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control form-group" value="Sábados">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control form-group" value="Domingos">
-                          </div>
-                      </div>
-                      <div class="col-sm-4 col-xs-6">
-                          <label>Horarios</label>
-                          <div class="form-group">
-                                <input type="text" class="form-control form-group" value="10:00 am - 11:00 pm">
-                          </div>
-                          <div class="form-group">
-                                <input type="text" class="form-control form-group" value="10:00 am - 11:00 pm">
-                          </div>
-                          <div class="form-group">
-                                <input type="text" class="form-control form-group" value="10:00 am - 11:00 pm">
-                          </div>
-                      </div>
-                  </form>
-              </div> 
+              
             
             <!-- modificar horarios y indicaciones -->
             <h3 class="sub-header">Tabla de competencia</h3>
@@ -94,86 +78,13 @@
                           <th>JP</th>
                           <th>DF</th>
                           <th>Puntos</th>
+                          <th>Orden a mostrar</th>
+                          <th></th>
                           <th></th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="text" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control"> 
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control"> 
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td> 
-                          <td>
-                            <input type="number" value="" class="form-control">
-                          </td>
-                          <td class="text-center">
-                            <strong>00</strong>
-                          </td>
-                          <td class="text-center">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Aron
-                          </td>
-                          <td>
-                            23 
-                          </td>
-                          <td>
-                            25
-                          </td>
-                          <td>
-                            13
-                          </td>
-                          <td>
-                            12 
-                          </td>
-                          <td>
-                            25
-                          </td>
-                          <td>
-                            126
-                          </td>
-                          <td>
-                            58
-                          </td>
-                          <td>
-                            68
-                          </td> 
-                          <td class="text-center">
-                            <strong>100</strong>
-                          </td>
-                          <td class="text-center">
-                            <a href="#" class="btn btn-danger"><i class="fa fa-minus"></i></a>
-                          </td>
-                        </tr>
+                      <tbody class = "borrar">
+                        <?= (isset($tabla))? $tabla : '';?>
                       </tbody>
                     </table>
                   </div>
@@ -181,14 +92,26 @@
               </div>
             </div>
 
-            <!-- Galeria de bebidas -->
-            <h3 class="sub-header">Galería de imágenes</h3>
-            <div class="bs-docs-section">
-              <div class="form-group">
-                  <label>Cargar imagenes</label>
-                  <div class="alert alert-info">Aquí va el componente de carga de imagenes</div>
-              </div>
+<div class="row">
+    <div class = "col-sm-12"><h1 class="page-header"></h1></div>
+    <div class = "col-xs-12 col-sm-5">
+        <h3 class="page-header2">Sección "Galeria"</h3>
+        <form action="Admin_billar/upload_multiple_images" id = "dropzone1" class="dropzone">
+            <input type="hidden" name= "seccion" value="99">
+            <div class = "hidden_images">
+                <?= $gallery_dropzone?>
             </div>
-
-            
+        </form>
+    </div>
+    <div class = "col-xs-12 col-sm-7">
+        <h3>Imágenes actuales</h3>
+        <form id="delete_pictures" method = "post">
+            <div class = "row prev_gallery">
+                <?=$gallery?>
+            </div>
+            <button type ="submit" class="btn btn-default">Eliminar</button>
+            <input type= "checkbox" onchange="select_all(this.checked);"><span> Seleccionar todos</span>
+        </form>
+    </div>
+</div>
         

@@ -1,39 +1,58 @@
-
-	<body>
-	   <span class="ir-arriba icon-eject "></span>
-		<header>
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="<?= base_url()?>" style='text-decoration:none;color:white;'>
-							<img width="120" height="40" src="<?= base_url("img/logo3.png")?>" class="img-responsive center-block" alt="Anamar Beauty Lounge">
-						</a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li class="menu_extra_padding"><a href="<?= site_url("nosotras")?>" style='text-decoration:none;color:white;'>Nosotras</a>
-							</li>
-							<li class="dropdown menu_extra_padding">
-								<a class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style='text-decoration:none;color:white;'>Servicios <span class="caret"></span></a>
-								<?=$navbar?>
-							</li>
-
-							<li class="menu_extra_padding"><a href="<?= site_url("contacto")?>" style='text-decoration:none;color:white;'>Contacto</a>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fanamarmty%2F%3Ffref%3Dts&width=165&layout=button_count&action=like&show_faces=true&share=true&height=46&appId" height="30" width="200" style="border:none;overflow:hidden;margin-top: 25px;" class="center-block"></iframe>
-							</li>
-						</ul>
-					</div>
-					<!--/.nav-collapse -->
-				</div>
-			</nav>
-		</header>
+<body>
+  	<!-- menu y redes -->
+    <nav class="navbar navbar-inverse visible-md visible-lg">
+    <div class="container">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-center">
+          <li><a href="contacto/#unete">unete a nuestro equipo</a></li>
+          <li><a href="#" class="hidden">testimonios</a></li>
+          <li><a href="servicios">nosotros</a></li>
+          <li><a href="contacto/#formulario">dudas y comentarios</a></li>
+          <li><a href="https://www.facebook.com/BolaOchoBillar/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/bolaochobillar" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bolaochobillar/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+</nav>    
+    <!-- menu nav -->
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    
+    <div class="brand-centered">
+      <a class="navbar-brand" href="home">
+          <img src="img/logo.svg" alt="logo Bola 8">
+      </a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="home">Inicio</a></li>
+        <li><a href="menu">Menú</a></li>
+        <li><a href="servicios">Servicios</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="eventos">Eventos</a></li>
+        <li><a href="billar">Billar</a></li>
+        <li><a href="contacto">Contacto</a></li>
+      </ul>
+      <ul class="nav navbar-nav visible-xs">
+        <li><a href="contacto/#unete">unete a nuestro equipo</a></li>
+        <li><a href="#" class="hidden">testimonios</a></li>
+        <li><a href="servicios">nosotros</a></li>
+        <li><a href="contacto/#formulario">dudas y comentarios</a></li>
+        <li class="soc-media"><a href="https://www.facebook.com/BolaOchoBillar/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li class="soc-media"><a href="https://twitter.com/bolaochobillar" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li class="soc-media"><a href="https://www.instagram.com/bolaochobillar/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

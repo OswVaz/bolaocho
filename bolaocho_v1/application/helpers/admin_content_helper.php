@@ -89,14 +89,18 @@
 			$backup_names = "";
 			$n = 0;
 			$delete = false;
-			$counter = count($_POST['img_dropzone']);
 
-			foreach($_POST['img_dropzone'] as $img){
-				if (strlen($img) > 3){
-					$array = explode(".", $img);
-					rename($directorio.$img,  $directorio. $nombre_seccion. "_tmp_25".$n.'.'.$array[1]);
-					$backup_names .= "/".$nombre_seccion."_tmp_25".$n.'.'.$array[1] . ',';
-					$n++;
+			$counter = 0;
+			if(isset($_POST['img_dropzone'])){
+				$counter = count($_POST['img_dropzone']);
+
+				foreach($_POST['img_dropzone'] as $img){
+					if (strlen($img) > 3){
+						$array = explode(".", $img);
+						rename($directorio.$img,  $directorio. $nombre_seccion. "_tmp_25".$n.'.'.$array[1]);
+						$backup_names .= "/".$nombre_seccion."_tmp_25".$n.'.'.$array[1] . ',';
+						$n++;
+					}
 				}
 			}
 
@@ -122,7 +126,7 @@
 			$backup_names = trim($backup_names, ',');
 			$backup_names_array = explode(",", $backup_names);
 			$backup_namess = '';
-			$counter = 0;
+			
 
 			foreach($backup_names_array as $img){
 				if (strlen($img) > 3){
@@ -133,7 +137,7 @@
 				}
 			}
 
-			$datos['background_img'] =  $backup_namess.$all_names ;
+			$datos['background_img'] =  $backup_namess.$all_names;
 			$datos['css'] = '';
 			$datos['text'] = "";
 			return $datos;
@@ -151,7 +155,7 @@
 				$gallery .= $clearfix . '<div class = "col-sm-3">
 								<div class="checkbox ">
 									<label for= "img_'.$count.'"><input type="checkbox" name = "img[]" id = "img_'.$count.'" value="'.$names.'">
-										<img class = "img-responsive" src="'. base_url("img/fondos". $names) .'" alt="Anamar Beauty Lounge">
+										<img class = "img-responsive" src="'. base_url("img/fondos". $names) .'" alt="BolaOcho">
 									</label>
 								</div>
 							</div>';
@@ -205,12 +209,26 @@
 			$count = 0;
 			foreach($array as $names){
 				$clearfix = ($count % 4 == 0)? '<div class = "clearfix"></div>': '';
-				$gallery .= $clearfix . '<li class = "col-sm-3">
-								<a href="contacto" class = "thumbnail"><img class = "img-responsive" src="'. base_url("img/fondos". $names) .'" alt="Anamar Beauty Lounge"></a>
+				$gallery .= $clearfix . '<li class = "col-sm-2 col-xs-4">
+								<a href="contacto" class = "thumbnail"><img class = "img-responsive" src="'. base_url("img/fondos". $names) .'" alt="BolaOcho"></a>
 							</li>';
 				$count++;
 			}
 		}
+		return $gallery;
+	}
+	function gallery_front_billar($images){
+		$gallery = '';
+		if (strlen($images) > 3){
+			$images = trim($images, ',');
+			$array = explode(",", $images);
+			$count = 0;
+			foreach($array as $names){
+				$clearfix = ($count % 4 == 0)? '<div class = "clearfix"></div>': '';
+				$gallery .= $clearfix . '<div class="item"><img class = "img-responsive" src="'. base_url("img/fondos". $names) .'" alt="Bolaocho"></div>';
+				$count++;
+			}
+		}		
 		return $gallery;
 	}
 	function navbar($data){
@@ -279,7 +297,21 @@
 		return $html;
 	}
 
-
+	function mover_un_doc($nombre, $vacante){
+		
+		if(isset($_FILES) && !empty($_FILES)){
+			if($_FILES["back_img"]["name"] != ''){
+				$name_clean = str_replace(" ", "_", basename($_FILES["back_img"]["name"] ));
+				$target_file = 'docs/' . $name_clean;
+				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				$name = $directorio . $nombre . "_" . $vacante ."_" .rand(1,100). "." . $imageFileType;
+				if(move_uploaded_file($_FILES["back_img"]["tmp_name"], $name)){
+					
+				}
+			}
+	}
+		
+	}
 ?>
 
 

@@ -1,49 +1,49 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_eventos extends CI_Controller {
+class Billar extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
 		$this->load->model('contenido_model');
 		$this->load->helper('admin_content');
-		if(!$this->session->userdata('logueado'))
-			redirect('admin');
 	}
 
 	public function index()
 	{
-		$head['dropzone'] = 'true';
-		$data = array();
-		$head['pagina'] = 'admin_eventos'; // archivo js
-		$seccion = $this->contenido_model->get_contenido(PAGINA_EVENTOS, 1);
+		$header['navbar'] = '';
+        $head['dropzone'] = 'false';
+        $head['pagina'] = 'admin_billar'; // archivo js
+ 		$data = array();
+        $seccion = $this->contenido_model->get_contenido(PAGINA_BILLAR, 1);
         if($seccion){
             $data['data_section1'] = array('param1' => $seccion->nombre, 'param2' => $seccion->background_img,'param3' => $seccion->css);
         }
-        $seccion = $this->contenido_model->get_contenido(PAGINA_EVENTOS, 2);
+
+        $seccion = $this->contenido_model->get_contenido(PAGINA_BILLAR, 2);
         if($seccion){
             $data['data_section2'] = array('param1' => $seccion->nombre);
         }
-        $seccion = $this->contenido_model->get_contenido(PAGINA_EVENTOS, 3);
+         
+        $seccion = $this->contenido_model->get_contenido(PAGINA_INICIO, 4);
         if($seccion){
-            $data['data_section3'] = array('param1' => $seccion->nombre);
+            $data['data_section3'] = array('param1' => $seccion->nombre, 'param2' => $seccion->background_img,
+                                'param3' => $seccion->css, 'param4' => $seccion->text);
         }
-        $seccion = $this->contenido_model->get_contenido(PAGINA_EVENTOS, 4);
+        $seccion = $this->contenido_model->get_contenido(PAGINA_BILLAR, 99);
         if($seccion){
-            $data['data_section4'] = array('param1' => $seccion->nombre);
+            $fotos = $seccion->background_img;
+            $data['gallery'] = gallery_front_billar($fotos);
         }
-
-		//load fronto
-		$head['css'] = '';
-		$this->load->view('back_office/default/head',$head);
-		$this->load->view('back_office/default/header');
-		$this->load->view('back_office/default/sidebar');
-		$this->load->view('back_office/eventos', $data);
-		$this->load->view('back_office/default/footer');
+ 
+		$this->load->view('front/default/head');
+		$this->load->view('front/default/header', $header);
+		$this->load->view('front/billar', $data);
+		$this->load->view('front/default/footer');
+			
 	}
-
     public function actualizar(){
-        $id_pagina = PAGINA_EVENTOS;
+        $id_pagina = PAGINA_BILLAR;
         $seccion = (isset($_POST['seccion']))? $_POST['seccion'] : '' ;
         $nombrepagina = (isset($_POST['page_name']))? $_POST['page_name'] : '' ;
         $param1 = (isset($_POST['param1']))? $_POST['param1'] : '' ;
@@ -75,6 +75,5 @@ class Admin_eventos extends CI_Controller {
         $query = $this->contenido_model->set_contenido($data);
         echo json_encode($data);
         unset($_POST);
-    }
-	
+    }	
 }

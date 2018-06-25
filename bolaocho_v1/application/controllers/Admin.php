@@ -6,6 +6,8 @@ class Admin extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		$this->load->model('contenido_model');
+		$this->load->helper('admin_content');
 		$this->load->model('login_model');
 	}
 
@@ -16,51 +18,29 @@ class Admin extends CI_Controller {
 		$this->load->view('back_office/default/head',$head);
 		$this->load->view('back_office/default/header');
 
+		$data['login'] = true;
  		if($this->session->userdata('logueado')){
 			$this->load->view('back_office/default/sidebar', $sidebar);
-			$data['html'] = $this->home_html();
-		}else{
-			$data['html'] = $this->login_html();
+			$data['login'] = false;
 		}
-		$footer['login'] = true;
-		$this->load->view('back_office/admin',$data);
-		$this->load->view('back_office/default/footer', $footer);
-	}
-	public function login_html(){
-		$html = '<div class="container ">
-					<h1 class="text-center col-sm-12">Login</h1>
-					<div class = "modal_error col-md-6 col-md-offset-3"></div>
-					<div class="col-md-6 col-md-offset-3">
-						<input type = "hidden" name = "page_name" value = "Admin" >
-						<form  id = "login" method = "post">
-							<div class="input-group">
-								<span class="input-group-addon glyphicon glyphicon-she1"><i class="fa fa-unlock-alt"></i></span>
-								<input type="text" name="mail" class="form-control input-lg" placeholder="Usuario">
-							</div>
-							<br>
-							<div class="input-group">
-								<span class="input-group-addon glyphicon glyphicon-pwd2"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-								<input type="password" name="pass" class="form-control input-lg" placeholder="Contraseña">
-							</div><br>
-							<input class="btn btn-lg btn-primary btn-block" value="Entrar" type="submit">
-						</form>
-					</div>
-				</div>
-				<div>';
 
-		return $html;
-		}
-	public function home_html(){
-		$html = '<h1 class="page-header text-center">Configuracion de contenido</h1>
-		<img class="img-responsive center-block animated zoomInRight" src="'.base_url("img/logoana.png").'" alt = "anamar" width = "500px"><br>';
-		return $html;
+		$seccion = $this->contenido_model->get_contenido_jugadores();
+        $data['competencia'] = $this->tabla_jugadores($seccion);
+
+         $seccion = $this->contenido_model->get_contenido_vacantes_activas();        
+         $data['vacantes'] = $this->tabla_vacantes($seccion);
+        
+         $seccion = $this->contenido_model->get_contenido_correos();        
+         $data['correos'] = $this->tabla_correos($seccion);
+
+		$this->load->view('back_office/admin',$data);
+		$this->load->view('back_office/default/footer');
 	}
 
 	public function login(){
 		$user = $_POST['mail'];
 		$pass = md5($_POST['pass']);
 		$query = $this->login_model->login($user, $pass);
-		
 		if(isset($query->admin_name)){
 			$usuario = array(
 				   'nombre' => $query->admin_name,
@@ -96,4 +76,34 @@ class Admin extends CI_Controller {
 	public function logout(){
 		$this->session->sess_destroy();
 	}
+
+function tabla_jugadores($data){
+        $html = '';
+        if(is_object($data[0])){
+            foreach ($data as $llave) {
+                $html .= '<tr class = "padre"><td><input type="number" class="form-control lugar" value="'.$llave->lugar.'"></td><td><input type="text" class="form-control nombre" value="'.$llave->nombre.'"></td><td><input type="number" class="form-control edad" value="'.$llave->edad.'"></td><td><input type="text" class="form-control Jornadas" value="'.$llave->Jornadas.'"></td><td><input type="text" class="form-control JG" value="'.$llave->JG.'"></td><td><input type="text" class="form-control JP" value="'.$llave->JP.'"></td><td><input type="text" class="form-control jugados" value="'.$llave->jugados.'"></td><td><input type="text" class="form-control JG2" value="'.$llave->JG2.'"></td><td><input type="text" class="form-control JP2" value="'.$llave->JP2.'"></td><td><input type="text" class="form-control DF" value="'.$llave->DF.'"></td><td><input type="text" class="form-control puntos" value="'.$llave->puntos.'"></td><td><input type="number" class="form-control orden" value="'.$llave->orden.'"></td></tr>';
+             }
+         }
+        return $html;
+    }
+    function tabla_vacantes($data){
+        $html = '';
+        if(is_object($data[0])){
+            foreach ($data as $llave) {
+                $html .= '<tr class = "padre"><td><input type="text" class="form-control vacante" value = "'.$llave->vacante.'"></td><td><input type="text" class="form-control descripcion" value = "'.$llave->descripcion.'"></td><td><input type="text" class="form-control horarios" value = "'.$llave->horarios.'"></td></tr>';
+             }
+         }
+        return $html;
+    }
+
+
+function tabla_correos($data){
+        $html = '';
+            foreach ($data as $llave) {
+                $html .= '<tr class = "padre"><td><input type="text" class="form-control lugar" value="'.$llave->id.'"></td><td><input type="text" class="form-control nombre" value="'.$llave->nombre.'"></td><td><input type="text" class="form-control edad" value="'.$llave->edad.'"></td><td><input type="text" class="form-control Jornadas" value="'.$llave->telefono.'"></td><td><input type="text" class="form-control JG" value="'.$llave->asunto.'"></td><td><input type="text" class="form-control JP" value="'.$llave->mensaje.'"></td><td><input type="text" class="form-control jugados" value="'.$llave->adjunto.'"></td></tr>';
+             }
+        
+        return $html;
+    }
+
 }

@@ -43,8 +43,7 @@ class Admin_inicio extends CI_Controller {
         $seccion = $this->contenido_model->get_contenido(PAGINA_INICIO, 5);
         if($seccion){
             $data['data_section5'] = array('param1' => $seccion->nombre, 'param2' => $seccion->background_img,
-                                'param3' => $seccion->css, 'param4' => $seccion->text,
-                                'param5' => $seccion->html);
+                                'param3' => $seccion->css);
         }
         $seccion = $this->contenido_model->get_contenido(PAGINA_INICIO, 6);
         if($seccion){
@@ -102,6 +101,8 @@ class Admin_inicio extends CI_Controller {
         $param5 = (isset($_POST['param5']))? $_POST['param5'] : '' ;
         $param6 = (isset($_POST['param6']))? $_POST['param6'] : '' ;
         $param7 = (isset($_POST['param7']))? $_POST['param7'] : '' ;
+        $param8 = (isset($_POST['param8']))? $_POST['param8'] : '' ;
+        $param9 = (isset($_POST['param9']))? $_POST['param9'] : '' ;
         
         $data =array(
             'id_pagina' => $id_pagina,
@@ -112,7 +113,9 @@ class Admin_inicio extends CI_Controller {
             'text' => $param4,
             'html' => $param5,
             'extra' => $param6,
-            'extras' => $param7
+            'extras' => $param7,
+            'extras2' => $param8,
+            'extras3' => $param9,
         );
         $query = $this->contenido_model->set_contenido($data);
         echo json_encode($data);
